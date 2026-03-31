@@ -15,6 +15,8 @@ class Program
         l1.AjouterJeu(j3);
         l1.AfficherJeux();
         
+        
+        l1.SauverCSV("GestionJeux.csv");
 
 
 

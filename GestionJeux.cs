@@ -1,6 +1,11 @@
+using System.Net.Sockets;
+using System.IO;
+using System.Collections.Generic;
+
+
 class GestionJeux
 {
-    private List<JeuVideo> jeuxliste;
+    private List<JeuVideo> jeuxliste = new List<JeuVideo>();
     public GestionJeux()
     {
         jeuxliste = new List<JeuVideo>();
@@ -22,6 +27,15 @@ class GestionJeux
             Console.WriteLine(jeu.GetStudio() );
             Console.WriteLine(jeu.GetPrix() );
         }
+    }
+    public void SauverCSV(string nomFichier)
+    {
+        StreamWriter writer = new StreamWriter(nomFichier);
+        foreach (JeuVideo e in jeuxliste)
+        {
+            writer.WriteLine(e.GetTitre() + ";"+e.GetStudio() + ";"+e.GetPrix());            
+        }
+        writer.Close();
     }
 
 }
