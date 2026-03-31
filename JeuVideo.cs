@@ -2,9 +2,9 @@ class JeuVideo
 {
     protected string titre;
     protected string studio;
-    protected int prix;
+    protected double prix;
 
-    public JeuVideo(string titre, string studio, int prix)
+    public JeuVideo(string titre, string studio, double prix)
     {
         this.titre = titre;
         this.studio = studio;
@@ -21,7 +21,7 @@ class JeuVideo
     {
         return studio;
     }
-    public int GetPrix()
+    public double GetPrix()
     {
         return prix;
     }
