@@ -18,6 +18,9 @@ class Program
         
         l1.SauverCSV("GestionJeux.csv");
 
+        l1.ChargerCSV("GestionJeux.csv");
+        l1.AfficherJeux();
+
 
 
 

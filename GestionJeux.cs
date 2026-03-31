@@ -37,6 +37,22 @@ class GestionJeux
         }
         writer.Close();
     }
+    public void ChargerCSV(string nomFichier)
+    {
+        jeuxliste.Clear();
+        if (File.Exists(nomFichier))
+        {
+            StreamReader reader = new StreamReader(nomFichier);
+            while (!reader.EndOfStream)
+            {
+                string ligne = reader.ReadLine();
+                string[] morceaux = ligne.Split(';');
+                JeuVideo e = new JeuVideo(morceaux[0], morceaux[1], double.Parse(morceaux[2]));
+                jeuxliste.Add(e);
+            }
+            reader.Close();
+        }
+    }
 
 }
 
