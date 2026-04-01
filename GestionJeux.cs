@@ -1,6 +1,9 @@
 using System.Net.Sockets;
 using System.IO;
 using System.Collections.Generic;
+using System.Xml.Serialization;
+using System.Text.Json;
+
 
 
 class GestionJeux
@@ -23,9 +26,9 @@ class GestionJeux
         Console.WriteLine("Liste des jeux :");
         foreach (JeuVideo jeu in jeuxliste)
         {
-            Console.WriteLine(jeu.GetTitre() );
-            Console.WriteLine(jeu.GetStudio() );
-            Console.WriteLine(jeu.GetPrix() );
+            Console.WriteLine(jeu.Titre );
+            Console.WriteLine(jeu.Studio );
+            Console.WriteLine(jeu.Prix );
         }
     }
     public void SauverCSV(string nomFichier)
@@ -33,7 +36,7 @@ class GestionJeux
         StreamWriter writer = new StreamWriter(nomFichier);
         foreach (JeuVideo e in jeuxliste)
         {
-            writer.WriteLine(e.GetTitre() + ";"+e.GetStudio() + ";"+e.GetPrix());            
+            writer.WriteLine(e.Titre + ";"+e.Studio + ";"+e.Prix);            
         }
         writer.Close();
     }
@@ -51,6 +54,36 @@ class GestionJeux
                 jeuxliste.Add(e);
             }
             reader.Close();
+        }
+    }
+    public void SauverXml(string nomFichier)
+    {
+        XmlSerializer xs = new XmlSerializer(typeof(List<JeuVideo>));
+        StreamWriter writer = new StreamWriter(nomFichier);
+        xs.Serialize(writer, jeuxliste);
+        writer.Close();
+    }
+    public void ChargerXml(string nomFichier)
+    {
+        if (File.Exists(nomFichier))
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(List<JeuVideo>));
+            StreamReader reader = new StreamReader(nomFichier);
+            jeuxliste = (List<JeuVideo>)xs.Deserialize(reader);
+            reader.Close();
+        }
+    }
+    public void SauverJson(string nomFichier)
+    {
+        string json = JsonSerializer.Serialize(jeuxliste);
+        File.WriteAllText(nomFichier, json);
+    }
+    public void ChargerJson(string nomFichier)
+    {
+        if (File.Exists(nomFichier))
+        {
+            string json = File.ReadAllText(nomFichier);
+            jeuxliste = JsonSerializer.Deserialize<List<JeuVideo>>(json);
         }
     }
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfJeuVideo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <JeuVideo>
+    <Titre>Minecraft</Titre>
+    <Studio>Mojang</Studio>
+    <Prix>29.99</Prix>
+  </JeuVideo>
+  <JeuVideo>
+    <Titre>Mario kart 8 delux</Titre>
+    <Studio>Nitendo</Studio>
+    <Prix>59.99</Prix>
+  </JeuVideo>
+  <JeuVideo>
+    <Titre>THe Witcher 3</Titre>
+    <Studio>CD Project</Studio>
+    <Prix>39.99</Prix>
+  </JeuVideo>
+</ArrayOfJeuVideo>
