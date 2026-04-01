@@ -86,6 +86,40 @@ class GestionJeux
             jeuxliste = JsonSerializer.Deserialize<List<JeuVideo>>(json);
         }
     }
+    public void prixMoyen()
+    {
+        double somme = 0;
+        int comte = 0;
+        double moyenne = 0;
+        foreach (JeuVideo jeu in jeuxliste)
+        {
+            somme += jeu.Prix;
+            comte++;
+        
+        }
+        moyenne = somme / comte;
+        Console.WriteLine(moyenne);
+    }
+    public void JeuPlusCher()
+    {
+        double somme = 0;
+        string jeux = "";
+        foreach (JeuVideo jeu in jeuxliste)
+        {
+            if (jeu.Prix > somme)
+            {
+                somme = jeu.Prix;
+                jeux = jeu.Titre;
+
+            }
+           
+        }
+        Console.WriteLine("ce jeux est le plus chere");
+        Console.WriteLine(jeux);
+        Console.WriteLine(somme);
+    }
+        
+
 
 }
 

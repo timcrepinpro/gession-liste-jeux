@@ -50,3 +50,21 @@ class Program
 
     }
 }
+
+/*
+
+
+1. Quel est le rôle de la sérialisation ? 
+stocker des donnée reutilisable dans un autre fichier
+2. Quel est le rôle de la désérialisation ? 
+exploiter ses informatiin
+3. Pourquoi faut-il un constructeur vide pour XML ? 
+pour initialiser les class avant leur creation
+4. Pourquoi utilise-t-on une classe de gestion ? 
+pour avoir une methode commune
+5. Quel est l’intérêt du CSV ? 
+il est compacte est facilement lisible
+6. Quel format te semble le plus pratique entre CSV, JSON et XML ? Pourquoi ? 
+le json
+
+*/
